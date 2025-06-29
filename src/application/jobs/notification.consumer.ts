@@ -1,4 +1,4 @@
-import { Processor } from '@nestjs/bullmq';
+import { Processor, WorkerHost } from '@nestjs/bullmq';
 import { Logger } from '@nestjs/common';
 import { Job } from 'bullmq';
 
@@ -7,7 +7,7 @@ import { Job } from 'bullmq';
  * This consumer processes notification jobs asynchronously.
  */
 @Processor('notification')
-export class NotificationConsumer {
+export class NotificationConsumer extends WorkerHost {
   private readonly logger = new Logger(NotificationConsumer.name);
 
   /**
