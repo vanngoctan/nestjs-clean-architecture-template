@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
-import * as helmet from 'helmet';
+import helmet from 'helmet';
 import { Logger } from 'nestjs-pino';
 import { AppModule } from './app.module'; // Unified module that supports both databases
 import { GlobalExceptionFilter } from './presentation/shared/filters/global-exception.filter';
@@ -16,7 +16,7 @@ async function bootstrap() {
   app.useLogger(app.get(Logger));
 
   // Apply security middlewares
-  app.use(helmet);
+  app.use(helmet());
   app.enableCors({
     origin: process.env.CORS_ORIGIN || 'https://your-frontend-domain.com',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',

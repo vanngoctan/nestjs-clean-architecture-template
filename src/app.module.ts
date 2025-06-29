@@ -132,12 +132,12 @@ import { UserModule as MongoUserModule } from './presentation/modules/user/user.
 
     // Dynamically import database modules based on configuration
     MysqlDatabaseModule,
-    MongoDatabaseModule,
+    // MongoDatabaseModule,
 
     // Import both user modules and let the repository provider in each module
     // determine which implementation to use based on the DATABASE_TYPE env var
     MySqlUserModule,
-    MongoUserModule,
+    // MongoUserModule,
   ],
   providers: [
     // Register ThrottlerGuard as a global guard
