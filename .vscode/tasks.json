@@ -1,0 +1,46 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Build & Run (MySQL)",
+      "type": "shell",
+      "command": "npm run build && set DATABASE_TYPE=mysql && npm run start:dev",
+      "problemMatcher": [],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Build & Run (MongoDB)",
+      "type": "shell",
+      "command": "npm run build && set DATABASE_TYPE=mongodb && npm run start:dev",
+      "problemMatcher": [],
+      "group": "build"
+    },
+    {
+      "label": "Setup MySQL Database",
+      "type": "shell",
+      "command": "npm run db:setup:mysql",
+      "problemMatcher": []
+    },
+    {
+      "label": "Setup MongoDB Database",
+      "type": "shell",
+      "command": "npm run db:setup:mongodb",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run Tests",
+      "type": "shell",
+      "command": "npm test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run E2E Tests",
+      "type": "shell",
+      "command": "npm run test:e2e",
+      "problemMatcher": []
+    }
+  ]
+}
