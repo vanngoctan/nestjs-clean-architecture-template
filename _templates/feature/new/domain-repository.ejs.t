@@ -4,36 +4,36 @@ to: src/domain/repositories/<%= kebabCase %>.repository.ts
 import { <%= pascalCase %>Entity } from '../entities/<%= kebabCase %>.entity';
 
 /**
- * <%= pascalCase %> Repository Interface
+ * <%= pascalCase %> Repository Abstract Class
  * 
  * Defines the contract for <%= pascalCase %> data access operations.
  * This is part of the domain layer and provides persistence abstractions.
  */
-export interface <%= pascalCase %>Repository {
+export abstract class <%= pascalCase %>Repository {
   /**
    * Creates a new <%= camelCase %> record
    */
-  create(<%= camelCase %>: <%= pascalCase %>Entity): Promise<<%= pascalCase %>Entity>;
+  abstract create(<%= camelCase %>: <%= pascalCase %>Entity): Promise<<%= pascalCase %>Entity>;
   
   /**
-   * Finds a <%= camelCase %> by its ID
+   * Finds <%= ['a','e','i','o','u'].includes(camelCase[0].toLowerCase()) ? 'an' : 'a' %> <%= camelCase %> by its ID
    */
-  findById(id: string): Promise<<%= pascalCase %>Entity | null>;
+  abstract findById(id: string): Promise<<%= pascalCase %>Entity | null>;
   
   /**
    * Finds all <%= camelCasePlural %>
    */
-  findAll(): Promise<<%= pascalCase %>Entity[]>;
+  abstract findAll(): Promise<<%= pascalCase %>Entity[]>;
   
   /**
    * Updates an existing <%= camelCase %>
    */
-  update(id: string, <%= camelCase %>: Partial<Omit<<%= pascalCase %>Entity, 'id'>>): Promise<<%= pascalCase %>Entity | null>;
+  abstract update(id: string, <%= camelCase %>: Partial<Omit<<%= pascalCase %>Entity, 'id'>>): Promise<<%= pascalCase %>Entity | null>;
   
   /**
-   * Deletes a <%= camelCase %> by its ID
+   * Deletes <%= ['a','e','i','o','u'].includes(camelCase[0].toLowerCase()) ? 'an' : 'a' %> <%= camelCase %> by its ID
    */
-  delete(id: string): Promise<boolean>;
+  abstract delete(id: string): Promise<boolean>;
   
   // Add additional repository methods as needed for your domain
 }

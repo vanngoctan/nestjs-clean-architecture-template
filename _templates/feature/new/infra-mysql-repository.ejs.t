@@ -56,7 +56,7 @@ export class <%= pascalCase %>RepositoryImpl implements <%= pascalCase %>Reposit
   }
 
   /**
-   * Finds a <%= camelCase %> by its ID
+   * Finds <%= ['a','e','i','o','u'].includes(camelCase[0].toLowerCase()) ? 'an' : 'a' %> <%= camelCase %> by its ID
    */
   async findById(id: string): Promise<<%= pascalCase %>Entity | null> {
     const <%= camelCase %> = await this.<%= camelCase %>Repository.findOne({ where: { id } });
@@ -81,10 +81,10 @@ export class <%= pascalCase %>RepositoryImpl implements <%= pascalCase %>Reposit
   }
 
   /**
-   * Deletes a <%= camelCase %> by its ID
+   * Deletes <%= ['a','e','i','o','u'].includes(camelCase[0].toLowerCase()) ? 'an' : 'a' %> <%= camelCase %> by its ID
    */
   async delete(id: string): Promise<boolean> {
     const result = await this.<%= camelCase %>Repository.delete(id);
-    return result.affected > 0;
+    return result.affected! > 0;
   }
 }

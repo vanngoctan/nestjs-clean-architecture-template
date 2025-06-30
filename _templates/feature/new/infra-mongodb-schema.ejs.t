@@ -20,7 +20,7 @@ export type <%= pascalCase %>Document = <%= pascalCase %>Schema & Document;
   timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }
 })
 export class <%= pascalCase %>Schema {
-  @Prop({ type: String, default: () => new MongooseSchema.Types.ObjectId().toString() })
+  @Prop({ type: String, default: () => new MongooseSchema.Types.ObjectId('').toString() })
   _id: string;
   
   // Define the timestamp properties
